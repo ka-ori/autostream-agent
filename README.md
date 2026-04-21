@@ -3,8 +3,7 @@ title: AutoStream AI Sales Agent
 emoji: 🎬
 colorFrom: blue
 colorTo: purple
-sdk: streamlit
-sdk_version: 1.32.0
+sdk: docker
 app_file: app.py
 pinned: false
 ---
