@@ -1,8 +1,8 @@
 ---
 title: AutoStream AI Sales Agent
-emoji: 🎬
-colorFrom: blue
-colorTo: purple
+emoji: ⬛
+colorFrom: gray
+colorTo: red
 sdk: docker
 app_file: app.py
 pinned: false
