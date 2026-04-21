@@ -63,6 +63,10 @@ python demo.py
 DEBUG=1 python main.py
 ```
 
+### Demo Video
+
+![AutoStream AI Sales Agent Demo](screen_recording.mov)
+
 ---
 
 ## Example Conversation
