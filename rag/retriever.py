@@ -22,8 +22,8 @@ class KnowledgeBaseRetriever:
         for plan in kb["plans"]:
             features = ", ".join(plan["features"])
             docs.append(
-                f"{plan['name']} costs {plan['price']}. "
-                f"Includes: {features}."
+                f"Pricing — {plan['name']}: price is {plan['price']}, costs {plan['price']}. "
+                f"This plan includes: {features}."
             )
 
         for policy in kb["policies"]:
@@ -38,9 +38,11 @@ class KnowledgeBaseRetriever:
 
     @staticmethod
     def _tokenize(text: str) -> list[str]:
-        return re.findall(r"\w+", text.lower())
+        tokens = re.findall(r"\w+", text.lower())
+        # Light stemming: collapse plurals so "cost"/"costs", "plan"/"plans" match.
+        return [t[:-1] if len(t) > 3 and t.endswith("s") else t for t in tokens]
 
-    def search(self, query: str, top_k: int = 3) -> str:
+    def search(self, query: str, top_k: int = 5) -> str:
         tokens = self._tokenize(query)
         scores = self._bm25.get_scores(tokens)
         ranked = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
