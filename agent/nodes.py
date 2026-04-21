@@ -137,12 +137,13 @@ def generate_response(state: AgentState) -> dict:
     intent = state.get("intent", "unknown")
     collecting = state.get("collecting_lead", False)
 
-    # Build KB context block
-    ctx = state.get("rag_context", "")
+    # Build KB context block — only inject when current turn is an inquiry.
+    # Prevents stale context from leaking into greeting / collecting turns.
+    ctx = state.get("rag_context", "") if intent == "inquiry" else ""
     kb_context = (
         f"\nKnowledge Base Context:\n{ctx}\n"
         if ctx
-        else "\n[No specific context retrieved — answer from general knowledge about AutoStream.]\n"
+        else "\n[No KB context for this turn.]\n"
     )
 
     # Build lead collection status block

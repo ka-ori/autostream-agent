@@ -5,7 +5,6 @@ Run: python demo.py
 """
 from __future__ import annotations
 import time
-import os
 from dotenv import load_dotenv
 
 load_dotenv()

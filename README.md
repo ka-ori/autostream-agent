@@ -25,7 +25,7 @@ Built for the ServiceHive / Inflx ML Intern assignment: _Social-to-Lead Agentic 
 | Lead qualification | Progressive field collection (name → email → platform) |
 | Tool execution guard | `mock_lead_capture` fires **only** after all 3 fields collected |
 | State persistence | Full conversation history via LangGraph `AgentState` across turns |
-| Multi-LLM support | Claude 3 Haiku · GPT-4o-mini · Gemini 1.5 Flash |
+| Multi-LLM support | Groq llama-3.3-70b (default) · Claude 3 Haiku · GPT-4o-mini · Gemini 2.0 Flash |
 
 ---
 
@@ -44,9 +44,10 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 # Edit .env — add ONE of:
-#   ANTHROPIC_API_KEY=sk-ant-...   ← Claude 3 Haiku (default)
+#   GROQ_API_KEY=gsk_...           ← llama-3.3-70b-versatile (default, free + fast)
+#   ANTHROPIC_API_KEY=sk-ant-...   ← Claude 3 Haiku
 #   OPENAI_API_KEY=sk-...          ← GPT-4o-mini
-#   GOOGLE_API_KEY=...             ← Gemini 1.5 Flash
+#   GOOGLE_API_KEY=...             ← Gemini 2.0 Flash
 ```
 
 ### 3. Run
@@ -82,7 +83,7 @@ You:   alex@example.com
 Agent: Almost there! Which creator platform are you primarily on?
 
 You:   YouTube
-[LEAD CAPTURE] Lead captured successfully: Alex Johnson, alex@example.com, YouTube
+Lead captured successfully: Alex Johnson, alex@example.com, YouTube
 
 Agent: You're all set, Alex! Our team will reach out to alex@example.com shortly.
        Start your free trial at autostream.io/signup
