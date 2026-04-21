@@ -65,7 +65,11 @@ DEBUG=1 python main.py
 
 ### Demo Video
 
-![AutoStream AI Sales Agent Demo](screen_recording.mov)
+
+
+https://github.com/user-attachments/assets/45c9ed15-a8f1-4857-9920-9b535b307036
+
+
 
 ---
 
